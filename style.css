@@ -1,0 +1,189 @@
+/* Importando Materialize CSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css');
+
+/* Estilos Globais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #004d9d; /* Cor azul da UFPR */
+}
+
+nav .brand-logo img {
+    height: 50px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    color: #004d9d;
+}
+
+.main-content {
+    padding: 2rem;
+}
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.categoria {
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.categoria:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    background-color: #004d9d;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffcc00;
+    color: #004d9d;
+}
+
+footer {
+    background-color: #004d9d;
+    padding: 2rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.capa-livro {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.livro-destaque {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 600px) {
+    .categoria {
+        flex: 1 1 100%; /* Ocupa 100% da largura em telas pequenas */
+    }
+
+    .nav-wrapper ul {
+        display: none; /* Esconde o menu em telas pequenas */
+    }
+
+    .nav-wrapper .brand-logo {
+        margin-left: 0; /* Centraliza o logo */
+    }
+}
+
+/* Mostra o menu em telas pequenas com um ícone de menu */
+.nav-wrapper .menu-icon {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .nav-wrapper .menu-icon {
+        display: block;
+        color: #ffffff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+/* Estilos para Modo Escuro */
+body.dark-mode {
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+#toggle-theme i {
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#toggle-theme:hover i {
+    color: #ffcc00;
+}
+
+.categoria .lista-recursos ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.categoria .lista-recursos ul li {
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categoria .lista-recursos ul li img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.categoria .lista-recursos ul li div {
+    flex: 1;
+}
+
+.primeiro-livro {
+    background-color: #ffeb3b; /* Cor de fundo amarela */
+    border: 2px solid #fbc02d; /* Borda mais escura */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+.primeiro-podcast {
+    background-color: #ffeb3b; /* Cor de fundo amarela */
+    border: 2px solid #fbc02d; /* Borda mais escura */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}

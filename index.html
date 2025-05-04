@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Plataforma de Gestão do Conhecimento - GI UFPR</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="blue darken-4">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="https://sociaisaplicadas.ufpr.br/decigi/" class="brand-logo">
+                            <img src="https://sociaisaplicadas.ufpr.br/decigi/wp-content/uploads/sites/5/2022/09/cropped-ufpr_b-192x192.jpg" alt="Logo UFPR" class="responsive-img" style="height: 50px;">
+                        </a>
+                        <a href="#" class="menu-icon right"><i class="fas fa-bars"></i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#recursos">Recursos</a></li>
+                            <li><a href="#sobre">Sobre</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                            <li><a href="#" id="toggle-theme"><i class="fas fa-power-off"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+	<main>
+		<section id="recursos" class="recursos" aria-labelledby="recursos-title">
+			<h2 id="recursos-title">Recursos Disponíveis</h2>
+			<div class="categorias">
+				<div class="categoria" data-categoria="Livros" x-data="{ categorias: [] }" aria-labelledby="livros-title">
+					<h3 id="livros-title">Livros</h3>
+					<div class="lista-recursos">
+						<ul>
+
+						</ul>
+						<button class="btn-show-more" aria-label="Mostrar Mais">Mostrar Mais</button>
+						<button id="addBookBtn" class="btn-add" aria-label="Adicionar Livro">Adicionar Livro</button>
+					</div>
+				</div>
+
+				<div class="categoria" data-categoria="Podcasts" x-data="{ categorias: [] }" aria-labelledby="podcasts-title">
+					<h3 id="podcasts-title">Podcasts</h3>
+					<div class="lista-recursos">
+						<ul></ul>
+						<button id="addPodcastBtn" class="btn-add" aria-label="Adicionar Podcast">Adicionar Podcast</button>
+					</div>
+				</div>
+
+				<div class="categoria" data-categoria="Canais do YouTube" x-data="{ categorias: [] }" aria-labelledby="youtube-title">
+					<h3 id="youtube-title">Canais do YouTube</h3>
+					<div class="lista-recursos">
+						<ul></ul>
+						<button id="addYoutubeChannelBtn" class="btn-add" aria-label="Adicionar Canal">Adicionar Canal</button>
+					</div>
+				</div>
+
+				<div class="categoria" data-categoria="Sites de Notícias" x-data="{ categorias: [] }" aria-labelledby="noticias-title">
+					<h3 id="noticias-title">Sites de Notícias</h3>
+					<div class="lista-recursos">
+						<ul></ul>
+						<button id="addNewsSiteBtn" class="btn-add" aria-label="Adicionar Site">Adicionar Site</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Modais -->
+		<div id="addBookModal" class="modal" role="dialog" aria-labelledby="addBookTitle" aria-hidden="true">
+			<div class="modal-content">
+				<button class="close" aria-label="Fechar">&times;</button>
+				<h2 id="addBookTitle">Adicionar Livro</h2>
+				<form id="addBookForm" class="modal-form">
+					<label for="bookTitle">Título do Livro:</label>
+					<input type="text" id="bookTitle" name="bookTitle" required>
+
+					<label for="bookAuthor">Nome do Autor:</label>
+					<input type="text" id="bookAuthor" name="bookAuthor" required>
+
+					<label for="bookDescription">Descrição:</label>
+					<textarea id="bookDescription" name="bookDescription" required></textarea>
+
+					<button type="submit" class="btn-submit">Adicionar</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="addPodcastModal" class="modal" role="dialog" aria-labelledby="addPodcastTitle" aria-hidden="true">
+			<div class="modal-content">
+				<button class="close" aria-label="Fechar">&times;</button>
+				<h2 id="addPodcastTitle">Adicionar Podcast</h2>
+				<form id="addPodcastForm" class="modal-form">
+					<label for="podcastTitle">Título do Podcast:</label>
+					<input type="text" id="podcastTitle" name="podcastTitle" required>
+
+					<label for="podcastDescription">Descrição:</label>
+					<textarea id="podcastDescription" name="podcastDescription" required></textarea>
+
+					<label for="podcastLink">Link:</label>
+					<input type="url" id="podcastLink" name="podcastLink" required>
+
+					<button type="submit" class="btn-submit">Adicionar</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="addNewsSiteModal" class="modal" role="dialog" aria-labelledby="addNewsSiteTitle" aria-hidden="true">
+			<div class="modal-content">
+				<button class="close" aria-label="Fechar">&times;</button>
+				<h2 id="addNewsSiteTitle">Adicionar Site de Notícias</h2>
+				<form id="addNewsSiteForm" class="modal-form">
+					<label for="newsSiteTitle">Nome do Site:</label>
+					<input type="text" id="newsSiteTitle" name="newsSiteTitle" required>
+
+					<label for="newsSiteDescription">Descrição:</label>
+					<textarea id="newsSiteDescription" name="newsSiteDescription" required></textarea>
+
+					<label for="newsSiteLink">Link:</label>
+					<input type="url" id="newsSiteLink" name="newsSiteLink" required>
+
+					<button type="submit" class="btn-submit">Adicionar</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="addYoutubeChannelModal" class="modal" role="dialog" aria-labelledby="addYoutubeChannelTitle" aria-hidden="true">
+			<div class="modal-content">
+				<button class="close" aria-label="Fechar">&times;</button>
+				<h2 id="addYoutubeChannelTitle">Adicionar Canal do YouTube</h2>
+				<form id="addYoutubeChannelForm" class="modal-form">
+					<label for="youtubeChannelTitle">Nome do Canal:</label>
+					<input type="text" id="youtubeChannelTitle" name="youtubeChannelTitle" required>
+
+					<label for="youtubeChannelDescription">Descrição:</label>
+					<textarea id="youtubeChannelDescription" name="youtubeChannelDescription" required></textarea>
+
+					<label for="youtubeChannelLink">Link:</label>
+					<input type="url" id="youtubeChannelLink" name="youtubeChannelLink" required>
+
+					<button type="submit" class="btn-submit">Adicionar</button>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<section id="sobre" class="sobre" aria-labelledby="sobre-title">
+			<h2 id="sobre-title">Sobre o Projeto</h2>
+			<p>A Plataforma de Gestão do Conhecimento é uma iniciativa que visa facilitar o acesso a recursos educacionais de qualidade para a comunidade de Gestão da Informação da UFPR.</p>
+			<div class="developer-info">
+				<p><i class="fas fa-user" aria-hidden="true"></i> Desenvolvido por: Bruno Marafiga</p>
+				<p><i class="fas fa-envelope" aria-hidden="true"></i> E-mail: <a href="mailto:Brunomarafiga@proton.me">Brunomarafiga@proton.me</a></p>
+				<p><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn: <a href="https://www.linkedin.com/in/bruno-marafiga/" target="_blank" rel="noopener noreferrer">Bruno Marafiga</a></p>
+			</div>
+		</section>
+		<p>&copy; 2024 PGC-GI - UFPR. Todos os direitos reservados.</p>
+	</footer>
+</body>
+
+</html>
